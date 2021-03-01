@@ -51,7 +51,7 @@ public class Controller {
 
             while ((queryResult.next())){
                 if(queryResult.getInt(1)==1){
-                    loginmessege.setText("congratulations!");
+                    //loginmessege.setText("congratulations!");
                 }else{
                     loginmessege.setText("Invalid login, please try again");
                 }
