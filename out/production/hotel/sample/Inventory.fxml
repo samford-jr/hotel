@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="591.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Inventory">
+    <children>
+        <TableView fx:id="inventory">
+            <columns>
+                <TableColumn fx:id="Name" text="item_name" cellValueFactory="Name">
+                </TableColumn>
+                <TableColumn fx:id="Quantity" text="Quantity" cellValueFactory="Quantity">
+                </TableColumn>
+                <TableColumn fx:id="Price" text="Price" cellValueFactory="Price">
+                </TableColumn>
+                <TableColumn fx:id="Purchaser_id" text="Purchaser_id" cellValueFactory="Purchaser_id">
+                </TableColumn>
+            </columns>
+
+
+</TableView>
+
+
+        <Button layoutX="900" layoutY="0" onAction="#xbutton2OnAction" prefHeight="20" prefWidth="38" fx:id="xbutton2">
+        </Button>
+    </children>
+
+</AnchorPane>
