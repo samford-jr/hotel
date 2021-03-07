@@ -5,9 +5,9 @@ import javafx.scene.Scene;
 import java.sql.*;
 
 public class databaseconnection {
-    public Connection databaseLink;
+    public static Connection databaseLink;
 
-    public Connection getConnection(){
+    public static Connection getConnection(){
 
         String databaseName="hotel_db";
         String databaseUser="root";

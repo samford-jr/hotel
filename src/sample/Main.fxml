@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="591.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.admin">
+    <children>
+        <PieChart fx:id="pi" layoutX="50.0" layoutY="91.0" prefHeight="300.0" prefWidth="352.0" title="PieChart" />
+        <Button layoutX="390.0" layoutY="47.0" mnemonicParsing="false" onAction="#btn" text="Button" />
+        <Label fx:id="label1" layoutX="390.0" layoutY="90.0" prefHeight="17.0" prefWidth="69.0" text="Label">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+
+
+
+            <TableView fx:id="tableView" layoutX="446.0" layoutY="60.0" prefHeight="376.0" prefWidth="502.0">
+
+                <columns>
+                    <TableColumn text="First name">
+                    </TableColumn>
+
+                    <TableColumn text="Last Name">
+                    </TableColumn>
+
+                </columns>
+
+            </TableView>
+         
+
+        <Button layoutX="900" layoutY="0" onAction="#xbutton1OnAction" prefHeight="20" prefWidth="38" fx:id="xbutton1">
+            <graphic>
+                <ImageView fitHeight="20" fitWidth="38" pickOnBounds="true" preserveRatio="true">
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <Button fx:id="purchase" layoutX="63.0" layoutY="470.0" onAction="#purchaseOnAction" prefHeight="0.0" prefWidth="178.0" text="purchase">
+            <font>
+                <Font size="24" />
+            </font>
+        </Button>
+        <Button fx:id="Employees" layoutX="347.0" layoutY="470.0" onAction="#EmployeesOnAction" prefHeight="34.0" prefWidth="156.0" text="Employees">
+            <font>
+                <Font size="24" />
+            </font>
+
+        </Button>
+        <Button fx:id="Cashier" layoutX="639.0" layoutY="470.0" prefHeight="51.0" prefWidth="178.0" text="Cashier">
+            <font>
+                <Font size="24" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

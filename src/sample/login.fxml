@@ -52,9 +52,6 @@
          </font>
       </Button>
 
-
-
-
       <TextField fx:id="username" layoutX="106.0" layoutY="357.0" prefHeight="26.0" prefWidth="198.0" promptText="username" />
       <PasswordField fx:id="password" layoutX="106.0" layoutY="395.0" prefHeight="26.0" prefWidth="197.0" promptText="password" />
       <Button layoutX="437.0" layoutY="32.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="150.0" text="order now!">
@@ -62,7 +59,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="696.0" layoutY="32.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="150.0" text="menu">
+      <Button fx:id="menu" layoutX="696.0" layoutY="32.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="150.0" text="menu">
          <font>
             <Font size="20.0" />
          </font>
