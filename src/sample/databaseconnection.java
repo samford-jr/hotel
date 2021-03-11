@@ -7,7 +7,7 @@ import java.sql.*;
 public class databaseconnection {
     public static Connection databaseLink;
 
-    public static Connection getConnection(){
+    public static boolean getConnection(){
 
         String databaseName="hotel_db";
         String databaseUser="root";
@@ -16,13 +16,15 @@ public class databaseconnection {
         try{
             //Class.forName("com.mysql.cj.jdbc.Driver");
           databaseLink=DriverManager.getConnection(url,databaseUser,databasePassword);
+            return true;
 
 
         }catch (Exception e){
             e.printStackTrace();
             e.getCause();
+            return false;
         }
-     return databaseLink;
+
     }
 
 }

@@ -2,15 +2,16 @@
 
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="591.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.admin">
+<AnchorPane prefHeight="591.0" prefWidth="930.0" style="-fx-background-image: url('/images/background.jpg');" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.admin">
     <children>
-        <PieChart fx:id="pi" layoutX="50.0" layoutY="91.0" prefHeight="300.0" prefWidth="352.0" title="PieChart" />
-        <Button layoutX="390.0" layoutY="47.0" mnemonicParsing="false" onAction="#btn" text="Button" />
-        <Label fx:id="label1" layoutX="390.0" layoutY="90.0" prefHeight="17.0" prefWidth="69.0" text="Label">
+        <PieChart fx:id="pi" layoutX="50" layoutY="91" prefHeight="300" prefWidth="352" title="PieChart" />
+
+        <Label fx:id="label2" layoutX="8" layoutY="10" prefHeight="17.0" prefWidth="190" text="Logged in as Admin,">
             <font>
                 <Font size="18.0" />
             </font>
@@ -18,28 +19,28 @@
 
 
 
-            <TableView fx:id="tableView" layoutX="446.0" layoutY="60.0" prefHeight="376.0" prefWidth="502.0">
+            <TableView fx:id="tableView" layoutX="454.0" layoutY="84.0" prefHeight="376.0" prefWidth="474.0">
 
                 <columns>
-                    <TableColumn text="First name">
+                    <TableColumn text="Order_id">
+                        <cellValueFactory><PropertyValueFactory property="Order_id" /> </cellValueFactory>
                     </TableColumn>
-
-                    <TableColumn text="Last Name">
+                    <TableColumn text="Date">
+                        <cellValueFactory><PropertyValueFactory property="Date" /> </cellValueFactory>
                     </TableColumn>
-
+                    <TableColumn text="Price">
+                        <cellValueFactory><PropertyValueFactory property="Price" /> </cellValueFactory>
+                    </TableColumn>
                 </columns>
 
             </TableView>
          
 
-        <Button layoutX="900" layoutY="0" onAction="#xbutton1OnAction" prefHeight="20" prefWidth="38" fx:id="xbutton1">
-            <graphic>
-                <ImageView fitHeight="20" fitWidth="38" pickOnBounds="true" preserveRatio="true">
-                </ImageView>
-            </graphic>
+        <Button layoutX="904.0" onAction="#xbutton1OnAction" prefHeight="34.0" prefWidth="52.0" text="X" fx:id="xbutton1" />
+        <Button fx:id="LogOut" layoutX="790.0" onAction="#LogOutOnAction" prefHeight="34.0" prefWidth="100" text="Log Out">
         </Button>
 
-        <Button fx:id="purchase" layoutX="63.0" layoutY="470.0" onAction="#purchaseOnAction" prefHeight="0.0" prefWidth="178.0" text="purchase">
+        <Button fx:id="purchase" layoutX="63.0" layoutY="470.0" onAction="#purchaseOnAction" prefHeight="0.0" prefWidth="178.0" text="Inventory">
             <font>
                 <Font size="24" />
             </font>
@@ -50,10 +51,27 @@
             </font>
 
         </Button>
-        <Button fx:id="Cashier" layoutX="639.0" layoutY="470.0" prefHeight="51.0" prefWidth="178.0" text="Cashier">
+        <Button fx:id="Cashier" layoutX="639.0" layoutY="470.0" onAction="#CashierOnAction" prefHeight="51.0" prefWidth="178.0" text="Cashier">
             <font>
                 <Font size="24" />
             </font>
         </Button>
+
+
+        <ImageView fitHeight="34.0" fitWidth="52.0" layoutX="702.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                </ImageView>
+      <Label fx:id="label1" layoutX="532" layoutY="56" prefHeight="26" prefWidth="285" text="Current Orders:">
+        <font>
+            <Font size="26" />
+
+        </font>
+      </Label>
+      <Label fx:id="label3" layoutX="137" layoutY="399" prefHeight="27" prefWidth="178" text="The relative serving capacity:">
+        <font>
+            <Font size="14" />
+
+        </font>
+      </Label>
+      <Label fx:id="label4" layoutX="179" layoutY="263" prefHeight="65" prefWidth="94" text=" " />
     </children>
 </AnchorPane>

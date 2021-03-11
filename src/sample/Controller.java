@@ -1,14 +1,12 @@
 package sample;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.stage.StageStyle;
@@ -21,7 +19,10 @@ import javafx.scene.layout.HBox;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+
+import static sample.Cashier_Controller.getCashier;
 
 public class Controller {
      @FXML
@@ -30,8 +31,8 @@ public class Controller {
     private Button utton;
      @FXML
      private Label loginmessege;
-   // @FXML
-   // private Button loginbutton;
+    @FXML
+    private Button loginbutton;
     @FXML
     private TextField username;
     @FXML
@@ -42,16 +43,14 @@ public class Controller {
     public Label label;
     @FXML
     private Button menu;
-    Stage stage2=new Stage();
 
+    public void loginbuttonONAction (ActionEvent event) throws IOException, SQLException {
 
-     public void loginbuttonONAction (ActionEvent event) throws IOException {
-
-        // if(username.getText().isBlank()==false &&password.getText().isBlank()==false){
+         if(username.getText().isBlank()==false &&password.getText().isBlank()==false){
 
              loginvalidate();
-         //}else
-           //  loginmessege.setText("Please enter username and password");
+         }else
+             loginmessege.setText("Please enter username and password");
 
 
      }
@@ -60,40 +59,41 @@ public class Controller {
          Stage stage=(Stage) xbutton.getScene().getWindow();
          stage.close();
      }
-     public void menuOnAction (ActionEvent event){}
-     public void loginvalidate () throws IOException {
-       //  databaseconnection connection=new databaseconnection();
-         //Connection connectDB= connection.getConnection();
+     public void menuOnAction (ActionEvent event) throws IOException {
+         Main.primaryStage.getScene().setRoot(FXMLLoader.load(getClass().getResource("menu.fxml")));
+         Main.primaryStage.getScene().getRoot().getStylesheets().add("/styles/main.css");
 
-         //String verifylogin ="SELECT count(1) from admins WHERE username='"+ username.getText()+"'And password='"+password.getText()+"'";
+     }
+    public void OrderOnAction (ActionEvent event) throws IOException {
+        Main.primaryStage.getScene().setRoot(FXMLLoader.load(getClass().getResource("Order.fxml")));
+        Main.primaryStage.getScene().getRoot().getStylesheets().add("/styles/main.css");
+    }
+     public void loginvalidate () throws IOException, SQLException {
 
-       /* try{
-            Statement statement=connectDB.createStatement();
+         Connection connection = databaseconnection.databaseLink;
+
+         String verifylogin ="SELECT count(1) from admins WHERE username='"+ username.getText()+"'And password='"+password.getText()+"'";
+
+        try{
+            Statement statement=connection.createStatement();
             ResultSet queryResult=statement.executeQuery(verifylogin);
 
             while ((queryResult.next())){
                 if(queryResult.getInt(1)==1){
-          */
-                    Parent root2 = FXMLLoader.load(getClass().getResource("Main.fxml"));
 
-                   Main.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("Main.fxml"))));
+
+                    Main.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("Main.fxml"))));
+                    Main.primaryStage.getScene().getRoot().getStylesheets().add("/styles/main.css");
                     Main.primaryStage.show();
-                  /* //stage2.initStyle(StageStyle.UNDECORATED);
-                   /* HBox one=new HBox();
-                    Button btn=new Button("this is a demo");
-                    one.getChildren().add(btn);*/
-                    //stage2.setScene(new Scene(root2, 938, 591));
-                    //stage2.show();
 
-                    //loginmessege.setText("congratulations!");
-            /*    }else{
+            }else{
                     loginmessege.setText("Invalid login, please try again");
                 }
             }
         }catch (Exception e){
             e.printStackTrace();
             e.getCause();
-        }*/
+        }
 
      }
 }

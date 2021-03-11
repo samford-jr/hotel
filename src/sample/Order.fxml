@@ -1,13 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.Controller"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane fx:id="Apane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Order_Controller">
+    <children>
 
+        <Label fx:id="lbl6" layoutX="88.0" layoutY="50.0" prefHeight="17" prefWidth="113.0" text="Food Type" />
+        <Label fx:id="lbl7" layoutX="326.0" layoutY="50.0" prefHeight="11.0" prefWidth="103.0" text="Drinks" />
+        <ScrollPane fx:id="bar" layoutX="33.0" layoutY="68.0" prefHeight="97" prefWidth="206">
+            <VBox fx:id="vbox" prefHeight="86.0" prefWidth="202.0">
+                <HBox> <ComboBox fx:id="foodanddrink" prefHeight="28.0" prefWidth="150.0">
+                    <items>
+                        <FXCollections fx:id="coll" fx:factory="observableArrayList">
+                            <String fx:value="Beyeayenet" />
+                            <String fx:value="ferefer" />
+                            <String fx:value="pasta" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                    <ComboBox fx:id="amountcombobox" prefHeight="28.0" prefWidth="50.0">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <Integer fx:value="1" />
+                                <Integer fx:value="2" />
+                                <Integer fx:value="3" />
+                                <Integer fx:value="4" />
+                                <Integer fx:value="5" />
+                                <Integer fx:value="6" />
+                                <Integer fx:value="7" />
+                                <Integer fx:value="8" />
+                                <Integer fx:value="9" />
+                                <Integer fx:value="10" />
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                </HBox>
+                <Button onAction="#orderfood" text="Add" />
+            </VBox>
+        </ScrollPane>
+        <ScrollPane fx:id="new" layoutX="264" layoutY="68" prefHeight="97" prefWidth="206">
+            <VBox  fx:id="vc" prefHeight="60" prefWidth="202">
+                <HBox> <ComboBox fx:id="drink" prefHeight="13.0" prefWidth="150.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Tea" />
 
+                            <String fx:value="Peanut Tea" />
+                            <String fx:value="Coca cola" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                    <ComboBox fx:id="drinkamount" prefHeight="28.0" prefWidth="50.0">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <Integer fx:value="1" />
+                                <Integer fx:value="2" />
+                                <Integer fx:value="3" />
+                                <Integer fx:value="4" />
+                                <Integer fx:value="5" />
+                                <Integer fx:value="6" />
+                                <Integer fx:value="7" />
+                                <Integer fx:value="8" />
+                                <Integer fx:value="9" />
+                                <Integer fx:value="10" />
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                </HBox>
+                <Button onAction="#orderdrink" text="Add" />
+
+            </VBox>
+        </ScrollPane>
+        <TableView fx:id="tableView" layoutX="487.0" layoutY="71.0" prefHeight="295.0" prefWidth="500.0">
+            <columns>
+                <TableColumn prefWidth="75.0" text="order">
+                    <cellValueFactory><PropertyValueFactory property="OrderList" />
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn prefWidth="75.0" text="amount">
+                    <cellValueFactory><PropertyValueFactory property="amount" />
+                    </cellValueFactory>
+                </TableColumn>
+
+            </columns>
+        </TableView>
+        <Button layoutX="622" layoutY="390" prefWidth="200" text="Order">
+            <font>
+                <Font name="System Italic" size="30" />
+
+            </font>
+        </Button>
+      <Button fx:id="back" layoutX="24" layoutY="2" mnemonicParsing="false" onAction="#BackOnAction" text="back" />
+      <Button layoutX="880" layoutY="10" mnemonicParsing="false" onAction="#xOnAction" text="X" fx:id="x" />
+
+    </children>
 
 </AnchorPane>

@@ -21,12 +21,18 @@ public class Main extends Application {
    // static Stage stage2 = new Stage();
     @Override
     public void start(Stage primaryStage) throws Exception{
+        if (databaseconnection.getConnection()==false) {
+            System.out.println("connection falid");
+            return;
+        }
+
         this.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         VBox vbox=new VBox();
 
-       // primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(new Scene(root, 938, 591));
+        root.getStylesheets().add("/styles/main.css");
         primaryStage.show();
     }
 

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="938.0" style="-fx-background-color: #b64029;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="938.0" style="-fx-background-image: url('/images/loginbackground.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <Separator layoutY="32.0" prefHeight="18.0" prefWidth="938.0" style="-fx-background-color: #b64029;" visible="false" />
       <Separator layoutX="-1.0" layoutY="101.0" prefHeight="3.0" prefWidth="954.0" style="-fx-border-color: #b64029;" visible="false" />
@@ -54,12 +54,12 @@
 
       <TextField fx:id="username" layoutX="106.0" layoutY="357.0" prefHeight="26.0" prefWidth="198.0" promptText="username" />
       <PasswordField fx:id="password" layoutX="106.0" layoutY="395.0" prefHeight="26.0" prefWidth="197.0" promptText="password" />
-      <Button layoutX="437.0" layoutY="32.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="150.0" text="order now!">
+      <Button layoutX="437.0" layoutY="32.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="150.0" text="order now!" onAction="#OrderOnAction">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="menu" layoutX="696.0" layoutY="32.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="150.0" text="menu">
+      <Button fx:id="menu" onAction="#menuOnAction" layoutX="696.0" layoutY="32.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="150.0" text="menu">
          <font>
             <Font size="20.0" />
          </font>
@@ -76,7 +76,7 @@
       </ImageView>
       <ImageView fitHeight="108.0" fitWidth="134.0" layoutX="105.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@63402511-lock-sign-illustration-white-icon-on-red-circle-.jpg" />
+            <Image url='/Images/login.jpg' />
          </image>
       </ImageView>
    </children>

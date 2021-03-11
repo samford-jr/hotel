@@ -1,6 +1,9 @@
 package sample;
 
 //import javafx.embed.swing.JFXPanel;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -22,7 +25,11 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
+
+import static sample.Cashier_Controller.getCashier;
+
 
 //import java.awt.*;
 
@@ -31,70 +38,77 @@ public class admin implements Initializable {
 
 
     @FXML
-    public TableView tableView;
+    public  TableView tableView;
     @FXML
     private Button xbutton1;
     @FXML
     public Button purchase;
     @FXML
     public Button Employees;
+    @FXML
+    public Button Cashier;
 
     @FXML
     public PieChart pi;
     @FXML
     public Label label1;
+    @FXML
+    public Label label4;
+    double status;
     VBox vbox= new VBox();
     Button btn=new Button("this is a demo");
+
     public void xbutton1OnAction (ActionEvent event){
 
         Stage stage=(Stage) xbutton1.getScene().getWindow();
         stage.close();
     }
 
-    public void btn(ActionEvent event) {
-        ObservableList<PieChart.Data> list = FXCollections.observableArrayList(
-                new PieChart.Data("java", 50),
-                new PieChart.Data("python", 25),
-                new PieChart.Data("c++", 20),
-                new PieChart.Data("c#", 5)
-        );
+
+    public void pie() {
+        status=85;
+        label4.setText(String.valueOf(status)+"%");
+
+           ObservableList<PieChart.Data> list = FXCollections.observableArrayList(
+                   new PieChart.Data("covered", status),
+                   new PieChart.Data("empty", 15)
+
+
+    );
+
+        pi.setLegendVisible(false);
         pi.setData(list);
 
-        for (PieChart.Data data : pi.getData()) {
-            data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
-                @Override
-                public void handle(MouseEvent event) {
-                    label1.setText(String.valueOf(data.getPieValue()) + "%");
-                }
-
-            });
-        }
 
     }
 
     public void purchaseOnAction (ActionEvent event) throws IOException {
-        //Pane p = new sample.Inventory();
 
-        //vbox.getChildren().add(btn);
-       // Stage stage=(Stage) purchase.getScene().getWindow();
-       Inventory.table();
-        /*Main.primaryStage.setScene(new Scene(*/
-        //FXMLLoader.load(getClass().getResource("Inventory.fxml"));
-
-
-
-        //Main.stage2.show();
-        //Parent root3 = FXMLLoader.load(getClass().getResource("Inventory.fxml"));
-
-        //stage.setScene(new Scene(root3, 938, 591));
+        Inventory.table();
     }
     public void EmployeesOnAction (ActionEvent event) throws IOException {
 
         sample.Employee_Controller.table();
     }
 
+    public void CashierOnAction (ActionEvent event) throws IOException {
+
+        sample.Cashier_Controller.table();
+    }
+    public void LogOutOnAction (ActionEvent event) throws IOException {
+        Main.primaryStage.setWidth(980);
+        Main.primaryStage.setHeight(591);
+        Main.primaryStage.getScene().setRoot(FXMLLoader.load(getClass().getResource("login.fxml")));
+        Main.primaryStage.getScene().getRoot().getStylesheets().add("/styles/main.css");
+
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        pie();
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tableView.getItems().addAll(getCashier());
+
     }
 }
